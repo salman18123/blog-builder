@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- No need to set system property "log4j2.contextSelector" to any value
+     when using <asyncLogger> or <asyncRoot>. -->
+
+<Configuration status="INFO">
+
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>
+                    %d{YYYY-MM-dd HH:mm:ss.SSS} [%T] [%-5level] [%X{REQUEST_ID}] %logger{1.}:%L -%msg%n
+                </pattern>>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+
+        <AsyncRoot level="info" includeLocation="true">
+            <AppenderRef ref="Console-Appender"/>
+        </AsyncRoot>
+
+    </Loggers>
+</Configuration>
